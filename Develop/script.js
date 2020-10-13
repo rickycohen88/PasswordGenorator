@@ -9,7 +9,7 @@ var lowercase = ["z","y","x","w","v","u","t","s","r","q","p","o","n","m","l","k"
 var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var numbers = ["0","1","2","3","4","5","6","7","8","9"];
 var special = ["!","@","#","$","%","^","&","*"];
-var usedarr = [];
+
 var passlength = 0;
 var passwordrtn;
 
@@ -37,7 +37,8 @@ var passwordrtn;
 }
     
 function definepassword() {
-  
+  var usedarr = [];
+  document.getElementById("notifications").innerHTML=null;
     
     let passlength = document.getElementById("length").value;
     console.log(passlength);
@@ -60,7 +61,8 @@ function definepassword() {
           console.log("added special");
           usedarr.push(numbers);
           console.log("added numbers");
-          makepasword;
+          console.log(usedarr);
+           makepasword.call();
           break;
         case document.getElementById("chkupp").checked && document.getElementById("chklow").checked && document.getElementById("chkspec").checked:
           usedarr.push(uppercase);
@@ -69,7 +71,8 @@ function definepassword() {
           console.log("added lower");
           usedarr.push(special);
           console.log("added special");
-          makepasword;
+          console.log(usedarr);
+          makepasword.call();
           break;
         case document.getElementById("chkupp").checked && document.getElementById("chklow").checked && document.getElementById("chknum").checked:
           usedarr.push(uppercase);
@@ -78,7 +81,8 @@ function definepassword() {
           console.log("added lower");
           usedarr.push(numbers);
           console.log("added numbers");
-          makepasword;
+          console.log(usedarr);
+          makepasword.call();
           break;
         case document.getElementById("chkupp").checked && document.getElementById("chkspec").checked && document.getElementById("chknum").checked:
           usedarr.push(uppercase);
@@ -87,7 +91,8 @@ function definepassword() {
           console.log("added special");
           usedarr.push(numbers);
           console.log("added numbers");
-          makepasword;
+          console.log(usedarr);
+          makepasword.call();
           break;
         case document.getElementById("chklow").checked && document.getElementById("chkspec").checked && document.getElementById("chknum").checked:
           usedarr.push(lowercase);
@@ -96,69 +101,80 @@ function definepassword() {
           console.log("added special");
           usedarr.push(numbers);
           console.log("added numbers");
-          makepasword;
+          console.log(usedarr);
+          makepasword.call();
           break;
         case document.getElementById("chkupp").checked && document.getElementById("chklow").checked:
           usedarr.push(uppercase);
           console.log("added upper");
           usedarr.push(lowercase);
           console.log("added lower");
-          makepasword;
+          console.log(usedarr);
+          makepasword.call();
           break;
         case document.getElementById("chkupp").checked && document.getElementById("chkspec").checked:
           usedarr.push(uppercase);
           console.log("added upper");
           usedarr.push(special);
           console.log("added special");
-          makepasword;
+          console.log(usedarr);
+          makepasword.call();
           break;
         case document.getElementById("chkupp").checked && document.getElementById("chknum").checked:
           usedarr.push(uppercase);
           console.log("added upper");
           usedarr.push(numbers);
           console.log("added numbers");
-          makepasword;
+          console.log(usedarr);
+          makepasword.call();
           break;
         case document.getElementById("chklow").checked && document.getElementById("chkspec").checked:
           usedarr.push(lowercase);
           console.log("added lower");
           usedarr.push(special);
           console.log("added special");
-          makepasword;
+          console.log(usedarr);
+          makepasword.call();
           break;
         case document.getElementById("chklow").checked && document.getElementById("chknum").checked:
           usedarr.push(lowercase);
           console.log("added lower");
           usedarr.push(numbers);
           console.log("added numbers");
-          makepasword;
+          console.log(usedarr);
+          makepasword.call();
           break;
         case document.getElementById("chkspec").checked && document.getElementById("chknum").checked:
           userarr.push(special);
           console.log("added special");
           usedarr.push(numbers);
           console.log("added numbers");
-          makepasword;
+          console.log(usedarr);
+          makepasword.call();
           break;
         case document.getElementById("chkupp").checked:
           usedarr.push(uppercase);
           console.log("added upper");
-          makepasword;
+          console.log(usedarr);
+          makepasword.call();
           break;
         case document.getElementById("chklow").checked:
           usedarr.push(lowercase);
           console.log("added lower");
-          makepasword;
+          console.log(usedarr);
+          makepasword.call();
           break;
         case document.getElementById("chkspec").checked:
           usedarr.push(special);
           console.log("added special");
-          makepasword;
+          console.log(usedarr);
+          makepasword.call();
           break;
         case document.getElementById("chknum").checked:
           usedarr.push(numbers);
           console.log("added numbers");
-          makepasword;
+          console.log(usedarr);
+          makepasword.call();
           break;
 
         default:
