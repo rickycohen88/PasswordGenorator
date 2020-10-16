@@ -2,11 +2,13 @@ var generateBtn = document.querySelector("#generate");// sets a variable to html
 generateBtn.addEventListener("click", definepassword);//runs function when click is present on variable generatebtn
 // Assignment Code 
 let lowercase = ["z","y","x","w","v","u","t","s","r","q","p","o","n","m","l","k","j","i","h","g","f","e","d","c","b","a"];
-var uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+let uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 let numbers = ["0","1","2","3","4","5","6","7","8","9"];
 let special = ["!","@","#","$","%","^","&","*"," ",];//need more!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-var passwordrtn;
-var passlength;
+let passwordrtn = [];
+let arrayofchar =[];
+let passlength;
+let ensure = [];
  // get user criteria for password and push to array to be used for creating password
  //function is called onclick of generate password btn on html page
 function definepassword () {
@@ -23,15 +25,19 @@ function definepassword () {
       console.log("no char selected");
     }
     else{
+      passwordrtn=[];
+       console.log(typeof passwordrtn);
         confirmready();
-        passwordrtn ="";
-        console.log(passwordrtn);
+        
+       
     }
 }
+
+
 function confirmready (){
-  typeof passwordrtn ==="undefined";
-        console.log(passwordrtn);
-  let arrayofchar =[];
+  arrayofchar = [];
+  console.log(arrayofchar);
+  
  if(document.getElementById("chkupp").checked){
    arrayofchar.push("uppercase");
    
@@ -52,8 +58,11 @@ function confirmready (){
  let aok = confirm("you have chosen a password containing "+arrayofchar+" and a length of "+passlength+ " press ok to confirm");
   if(aok === true){
     makepasword();
+    
   }
 }
+
+
 function makepasword (){
 
    for( let i=0; i < passlength; i++){
@@ -95,10 +104,28 @@ function makepasword (){
       else{
         passwordrtn += usedkey;
         console.log(passwordrtn);
+
       }  
     }
   writePassword();
 }
+
+
+function passEnsure(){
+  for(i=0; i<arrayofchar;i++){
+    let a = arrayofchar[i];
+    let b = a[Math.floor(Math.random()*a.length)];
+    ensure.push(b);
+
+  }
+  let c = passwordrtn.split();
+  for(i=0;i<c;i++){
+    c[Math.floor(Math.random()*c.length)].push(ensure[i])
+  }
+passwordrtn = c ;
+}
+
+
 // Write password to the #password input
 function writePassword() {
   var passwordText = document.querySelector("#password");
