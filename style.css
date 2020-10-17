@@ -151,6 +151,13 @@ button {
   #password {
     font-size: 1rem;
   }
+
+  #notifications {
+    text-align: center;
+    font-size: x-small;
+    text-shadow: none;
+    color: black;
+  }
 }
 
 @media (max-width: 500px) {

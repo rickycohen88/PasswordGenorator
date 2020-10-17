@@ -4,7 +4,7 @@ generateBtn.addEventListener("click", definepassword);//runs function when click
 let lowercase = ["z","y","x","w","v","u","t","s","r","q","p","o","n","m","l","k","j","i","h","g","f","e","d","c","b","a"];
 let uppercase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 let numbers = ["0","1","2","3","4","5","6","7","8","9"];
-let special = ["!","@","#","$","%","^","&","*"," ",];//need more!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+let special = ["!","@","#","$","%","^","&","*"," ",];
 let passwordrtn = [];
 let arrayofchar =[];
 let passlength;
@@ -25,7 +25,7 @@ function definepassword () {
       console.log("no char selected");
     }
     else{
-      passwordrtn=[];
+      passwordrtn=[];// this clears the array for multiple uses without page reload
        console.log(typeof passwordrtn);
         confirmready();
         
@@ -33,7 +33,7 @@ function definepassword () {
     }
 }
 
-
+//after the password is defined it passes the information to the confirm ready function which then sends a confirm to  the page for the user to validate the criteria to be used.
 function confirmready (){
   arrayofchar = [];
   console.log(arrayofchar);
@@ -62,7 +62,7 @@ function confirmready (){
   }
 }
 
-
+// this function is then called to actually make the password
 function makepasword (){
 
    for( let i=0; i < passlength; i++){
@@ -107,10 +107,11 @@ function makepasword (){
 
       }  
     }
-  writePassword();
+  passEnsure();
 }
 
-
+// this function ensures that at least one charcter of each chosen type will be in the password almost 100% of the time
+// there is a slight chance  a single char of one type will be over rided with this function.
 function passEnsure(){
   for(i=0; i<arrayofchar;i++){
     let a = arrayofchar[i];
@@ -123,6 +124,7 @@ function passEnsure(){
     c[Math.floor(Math.random()*c.length)].push(ensure[i])
   }
 passwordrtn = c ;
+writePassword();
 }
 
 
