@@ -28,7 +28,7 @@ just download the files directly for git hub.
 ### Deployed website and screenshots
 
 ![Image](Assets/Capture.PNG "Screenshot 1")
-![Image](Assets/Capturemobile.png "Screenshot 2")
+![Image](Assets/Capturemobile.PNG "Screenshot 2")
 
 [Link](https://rickycohen88.github.io/PasswordGenorator/)
 
