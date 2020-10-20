@@ -9,6 +9,7 @@ let passwordrtn = [];
 let arrayofchar =[];
 let passlength;
 let ensure = [];
+let usedarr=[];
  // get user criteria for password and push to array to be used for creating password
  //function is called onclick of generate password btn on html page
 function definepassword () {
@@ -40,20 +41,21 @@ function confirmready (){
   
  if(document.getElementById("chkupp").checked){
    arrayofchar.push("uppercase");
+   usedarr.push(uppercase);
    
    }
  
  if(document.getElementById("chklow").checked){
   arrayofchar.push("lowercase");
-  
+  usedarr.push(lowercase);
  }
  if(document.getElementById("chknum").checked){
   arrayofchar.push("numbers");
-  
+  usedarr.push(numbers);
  }
  if(document.getElementById("chkspec").checked){
   arrayofchar.push("special");
-  
+  usedarr.push(special);
  }
  let aok = confirm("you have chosen a password containing "+arrayofchar+" and a length of "+passlength+ " press ok to confirm");
   if(aok === true){
@@ -68,6 +70,7 @@ function makepasword (){
    for( let i=0; i < passlength; i++){
     let order = Math.random();
     let usedarr = [];
+    console.log(usedarr);
       if (order > 0.4999999){
         lowercase.reverse();
         uppercase.reverse();
@@ -88,7 +91,7 @@ function makepasword (){
           usedarr.push(special);
       }
       let order2 = Math.random;
-      if (order2 < 0.4999999){
+      if (order2 > 0.4999999){
           usedarr.reverse();
           console.log("usedarr was reversed");
       }
@@ -107,23 +110,43 @@ function makepasword (){
 
       }  
     }
+    console.log(arrayofchar);
+    console.log(usedarr);
   passEnsure();
 }
 
 // this function ensures that at least one charcter of each chosen type will be in the password almost 100% of the time
 // there is a slight chance  a single char of one type will be over rided with this function.
 function passEnsure(){
-  for(i=0; i<arrayofchar;i++){
-    let a = arrayofchar[i];
+  console.log(usedarr);
+  ensure = [];
+  for(i=0; i<usedarr.length;i++){
+    let a = usedarr[i];
+
+    console.log(a);
     let b = a[Math.floor(Math.random()*a.length)];
+    console.log(b);
     ensure.push(b);
+    console.log(ensure);
 
   }
-  let c = passwordrtn.split();
-  for(i=0;i<c;i++){
-    c[Math.floor(Math.random()*c.length)].push(ensure[i])
+  let c = passwordrtn.split("");
+  console.log(c);
+  console.log(typeof c);
+  console.log(typeof passwordrtn);
+  for(i=0;i<ensure.length;i++){
+
+    console.log(c.length);
+    let x = Math.floor(Math.random()*c.length);
+    console.log(x);
+    console.log(typeof x);
+    d = ensure[i];
+    console.log(d);
+    console.log(typeof d);
+    c.splice(x,1,d);
+    console.log(c);
   }
-passwordrtn = c ;
+passwordrtn = c.join("");
 writePassword();
 }
 
@@ -131,5 +154,6 @@ writePassword();
 // Write password to the #password input
 function writePassword() {
   var passwordText = document.querySelector("#password");
+  
   passwordText.value = passwordrtn;
 }
