@@ -28,6 +28,7 @@ function definepassword () {
     else{
       passwordrtn=[];// this clears the array for multiple uses without page reload
        console.log(typeof passwordrtn);
+
         confirmready();
         
        
@@ -69,7 +70,7 @@ function makepasword (){
 
    for( let i=0; i < passlength; i++){
     let order = Math.random();
-    let usedarr = [];
+     usedarr = [];
     console.log(usedarr);
       if (order > 0.4999999){
         lowercase.reverse();
